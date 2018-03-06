@@ -6,6 +6,10 @@ class UserProfile(db.Model):
     first_name = db.Column(db.String(80))
     last_name = db.Column(db.String(80))
     username = db.Column(db.String(80), unique=True)
+    age = db.Column(db.Integer)
+    bio = db.Column(db.String(255))
+    gender = db.Column(db.String(10))
+    date = db.Column(db.String(80))
 
     def is_authenticated(self):
         return True

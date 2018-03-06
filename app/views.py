@@ -8,7 +8,7 @@ This file creates your application.
 from app import app, db, login_manager
 from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, current_user, login_required
-from forms import LoginForm
+from forms import SignupForm
 from models import UserProfile
 
 
@@ -28,33 +28,16 @@ def about():
     return render_template('about.html')
 
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    form = LoginForm()
-    if request.method == "POST":
-        # change this to actually validate the entire form submission
-        # and not just one field
-        if form.username.data:
-            # Get the username and password values from the form.
+@app.route('/profile/')
+def profile():
+    """Render a secure page on our website that only logged in users can access."""
+    return render_template('profile.html')
 
-            # using your model, query database for a user based on the username
-            # and password submitted
-            # store the result of that query to a `user` variable so it can be
-            # passed to the login_user() method.
+@app.route('/profiles/')
+def profiles():
+    """Render a secure page on our website that only logged in users can access."""
+    return render_template('profiles.html')
 
-            # get user id, load into session
-            login_user(user)
-
-            # remember to flash a message to the user
-            return redirect(url_for("home"))  # they should be redirected to a secure-page route instead
-    return render_template("login.html", form=form)
-
-
-# user_loader callback. This callback is used to reload the user object from
-# the user ID stored in the session
-@login_manager.user_loader
-def load_user(id):
-    return UserProfile.query.get(int(id))
 
 ###
 # The functions below should be applicable to all Flask apps.
