@@ -35,7 +35,7 @@ body {
     border-radius: 8px;
 }
 .profile_boxes{
-    border: solid 2px black;
+    border-top: solid 2px blue;
     background-color: white;
     margin:2em;
     padding: 0.5em;
@@ -44,7 +44,7 @@ body {
     height:12em;
 }
 .pic-box{
-    border: solid 2px green;
+    border: none;
     width:20%;
     float:left;
     margin:0.5em;
@@ -56,11 +56,17 @@ body {
     
 }
 .profile_info{
-   border: solid 2px blue;
+   border: none;
    width:20%;
    float:left;
     margin:2em;
 }
 .viewbutton{
     margin-left: 5em;
+}
+.modal-dialog-1{
+    border-top:solid 2px blue;
+    background-color: white;
+    padding:2em;
+    width:40em;
 }

@@ -81,9 +81,9 @@ def profiles():
 
 @app.route('/profiles/<userid>', methods=['POST', 'GET'])
 def viewProfile(userid):
-    user = UserProfile.query.filter_by(user_ID=userid).first()
+    user = UserProfile.query.filter_by(u_id=userid).first()
     if user is not None:
-        return render_template('profile.html',user=user)
+        return render_template('viewprofile.html',user=user)
     else:
         flash('Unable to view user profile', 'danger')
         return redirect(url_for('profile'))
