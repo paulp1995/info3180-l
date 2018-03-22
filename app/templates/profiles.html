@@ -4,8 +4,24 @@
 
 {% block main %}
 
-  {% include 'flash_messages.html' %}
-
-  <p>This is a secure page. Therefore only authorised users are allowed access.</p>
+    <h1 class="title"><strong>Profiles</strong></h1>
+        {% for user in users %}
+            <div class="profile_boxes">
+                <div class="pic-box">
+                  <image src="{{ url_for('static', filename='uploads/'+user.profile_pic) }}" class="pro_pic">
+                </div>  
+                <br>
+                <div class="profile_info">
+                    <span class="name">{{ user.first_name }} {{ user.last_name }}</span>
+                   <br> <span class="sex"><i class="fa fa-street-view"></i>  {{ user.gender }}</span>
+                   <br> <span class="locs"><i class="fa fa-map-marker"></i>  {{ user.location }}</span>
+                </div>
+                <br>
+                <div class="viewbutton">
+                    </br>
+                    <a class="view-btn btn-success" href="{{ url_for('viewProfile', userid=user['u_id']) }}">View profile</a>
+                </div>
+            </div>
+        {% endfor %}
 
 {% endblock %}

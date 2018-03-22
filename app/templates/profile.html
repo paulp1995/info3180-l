@@ -5,7 +5,75 @@
 {% block main %}
 
   {% include 'flash_messages.html' %}
-
-  <p>This is a secure page. Therefore only authorised users are allowed access.</p>
+  <div class = "heading">
+     <h3> ADD PROFILE</h3> 
+  </div>
+  
+  <div class = "sub-container">
+        <form action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data">
+            {{ form.csrf_token }} 
+            
+            <div class="well well-lg">
+                <label for="firstname"><strong> First Name </strong> </label>
+                <br>
+                {{ form.first_name(class = "textfield",placeholder='John') }}
+                {% for message in form.first_name.errors %}
+                    <div class="error">{{ message }}</div>
+                {% endfor %}
+                <br>
+                
+                <label for="lastname"><strong> Last Name </strong> </label>
+                <br>
+                {{ form.last_name(class = "textfield",placeholder='Doe') }}
+                {% for message in form.last_name.errors %}
+                    <div class="error">{{ message }}</div>
+                {% endfor %}
+                <br>
+                
+                <label for="gender"><strong> Gender </strong> </label>
+                <br>
+                {{ form.gender(class = "textfield", id="gender")}}
+                {% for message in form.gender.errors %}
+                    <div class="error">{{ message }}</div>
+                {% endfor %}
+                <br>
+                
+                <label for="email"><strong> Email </strong></label>
+                <br>
+                {{ form.email(class = "textfield", placeholder='yourname@email.com') }}
+                {% for message in form.email.errors %}
+                     <div class="error">{{ message }}</div>
+                {% endfor %}
+                <br> 
+                
+                <label for="location"><strong> Location </strong></label>
+                <br>
+                {{ form.location(class = "textfield", placeholder='where are you located') }}
+                {% for message in form.location.errors %}
+                    <div class="error">{{ message }}</div>
+                {% endfor %}
+                <br> 
+                
+                <label for="bio"><strong> Biography </label>
+                <br>
+                {{ form.bio(class = "textfield", id = 'textbox',placeholder='Tell us about yourself') }}
+                {% for message in form.bio.errors %}
+                    <div class="error">{{ message }}</div>
+                {% endfor %}
+                <br> 
+                
+                <label for="profile_pic"><strong> Profile Picture </label>
+                <br>
+                {{ form.upload(id = 'p_pic', placeholder='Browse') }}
+                {% for message in form.upload.errors %}
+                    <div class="error">{{ message }}</div>
+                {% endfor %}
+                <br></br>
+                 {{ form.submit(class = "button1", placeholder="Add profile") }}
+            </div>
+        </form>
+    </div>
+    
+  </div>
 
 {% endblock %}
