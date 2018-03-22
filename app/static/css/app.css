@@ -15,7 +15,7 @@ body {
     height:90%;
 }
 .sub-container{
-    border-top:solid 2px blue;
+    border-top:solid 2px DodgerBlue ;
     background-color: white;
     padding:2.5%;
     margin-top: none;
@@ -31,11 +31,11 @@ body {
     height: 10em;
 }
 .button1{
-    background-color: #aaef7c;
+    background-color:#00FF7F;
     border-radius: 8px;
 }
 .profile_boxes{
-    border-top: solid 2px blue;
+    border-top: solid 2px DodgerBlue ;
     background-color: white;
     margin:2em;
     padding: 0.5em;
@@ -65,7 +65,7 @@ body {
     margin-left: 5em;
 }
 .modal-dialog-1{
-    border-top:solid 2px blue;
+    border-top:solid 2px DodgerBlue;
     background-color: white;
     padding:2em;
     width:40em;
